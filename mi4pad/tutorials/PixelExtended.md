@@ -41,51 +41,21 @@ Core features 核心特性:
 
 ## 命令解释
 
-fastboot: 引导或者刷写img
+[刷机命令解释](./Command.md)
 
-* fastboot boot [arg]
-* fastboot flash [arg]
-* fastboot reboot [arg]
+## 刷机步骤
 
-### fastboot boot
+### 救砖
+
+> 以TWRP3.7.1.img为例
 
 ```zsh
+## 此命令刷写recovery分区（如果变砖，刷写recovery可以并不能成功引导，可以先刷写，再用boot命令引动recovery即可）
+
+fastboot flash recovery TWRP3.7.1.img
+
 ## 如果变砖了，开机会进入bootloader，也就是fastboot界面模式，用于引导recovery镜像，进入recovery后就能救砖了
 
-fastboot boot *.img
-```
-
-### fastboot flash
-
-#### fastboot flash recovery
-
-```zsh
-## 此命名刷写recovery分区（如果变砖，刷写recovery可以并不能成功引导，可以先刷写，再用boot命令引动recovery即可）
-
-fastboot flash recovery *.img
-```
-
-#### fastboot flash boot
-
-```zsh
-## 此命名刷写boot分区（用于mgisk或者apatch破解boot分区后刷入使用）
-
-fastboot flash boot *.img
-```
-
-### fastboot reboot
-
-```zsh
-
-## 重启到bootloader
-
-fastboot reboot bootloader
-## 重启到recovery分区
-
-fastboot reboot recovery
-
-## 重启到system
-
-fastboot reboot system
+fastboot boot TWRP3.7.1.img
 ```
 
